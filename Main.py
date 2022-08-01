@@ -39,7 +39,7 @@ class Solution:
         Returns:
           True if it is empty, else returns False.
         """
-        if self.front == -1:
+        if self.front == -1 or self.front > self.rear:
             return True
         else:
             return False
@@ -83,8 +83,9 @@ class Solution:
             character: A character that will be enqueued to queue.
         """
         if not self.is_queue_full():
+            if (self.front == -1):
+                self.front = self.front+1
             self.rear = self.rear+1
-            print(self.rear)
             self.queue.append(data)
 
 
@@ -107,7 +108,7 @@ class Solution:
         """
         if not self.is_queue_empty():
             self.front = self.front+1
-            return self.front-1
+            return self.queue[self.front-1]
 
 
 # read the string text
@@ -136,7 +137,7 @@ for index in range(length_of_text):
     b = solution.dequeue_character()
 
     if a != b:
-        is_palindrome == False
+        is_palindrome = False
 
 
 # finally print whether string text is palindrome or not.
